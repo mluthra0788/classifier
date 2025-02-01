@@ -11,7 +11,6 @@ app = Flask(__name__)
 def prediction():
     with open("./model/iris_classifier.pkl", "rb") as f:
         clf = pickle.load(f)
-
     payload = request.json
     x_unknown = [payload["sepal-lenght"],payload["sepal-width"],payload["petal-lenght"],payload["petal-width"]]
     x_unknown = np.array(x_unknown).reshape(1,-1)
